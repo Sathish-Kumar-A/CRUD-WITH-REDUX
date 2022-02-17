@@ -1,29 +1,34 @@
+const img = "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
 let users = [
-    { name: "sathish", age: 22, city: "Chennai", role: "developer",id:0 },
+    { name: "sathish", age: 22, city: "Chennai", role: "developer",id:0,img:img },
     {
         name: "kumar",
         age: 22,
         city: "Chennai",
         role: "developer",
-        id:1
+        id: 1,
+        img:img
     }, {
         name: "rahul",
         age: 22,
         city: "Chennai",
         role: "developer",
-        id:2
+        id:2,
+        img:img
     }, {
         name: "kannan",
         age: 22,
         city: "Chennai",
         role: "developer",
-        id:3
+        id:3,
+        img:img
     }, {
         name: "sheik",
         age: 22,
         city: "Chennai",
         role: "developer",
-        id:4
+        id:4,
+        img:img
     },
 ]
 

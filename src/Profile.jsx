@@ -14,8 +14,8 @@ export const Profile = () => {
         city: crudReducer[id].city,
         role: crudReducer[id].role,
         id: crudReducer[id].id
-    });    const [showSubmit, setShowSubmit] = useState(false);
-    // console.log(profileDetails);
+    });
+    const [showSubmit, setShowSubmit] = useState(false);
     const edit = () => {
         setShowSubmit(true);
     }
