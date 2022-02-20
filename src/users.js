@@ -1,43 +1,43 @@
-const img = "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
-let users = [
-    { name: "sathish", age: 22, city: "Chennai", role: "developer",id:0,img:img },
+let users = [{
+        name: "sathish",
+        age: 22,
+        city: "Chennai",
+        role: "developer",
+        id: 0
+    },
     {
         name: "kumar",
         age: 22,
-        city: "Chennai",
-        role: "developer",
-        id: 1,
-        img:img
+        city: "Coimbatore",
+        role: "software engineer",
+        id: 1
     }, {
         name: "rahul",
-        age: 22,
-        city: "Chennai",
-        role: "developer",
-        id:2,
-        img:img
+        age: 23,
+        city: "salem",
+        role: "React Js developer",
+        id: 2
     }, {
         name: "kannan",
-        age: 22,
-        city: "Chennai",
-        role: "developer",
-        id:3,
-        img:img
+        age: 27,
+        city: "Tirunelveli",
+        role: "Angular developer",
+        id: 3
     }, {
         name: "sheik",
         age: 22,
-        city: "Chennai",
-        role: "developer",
-        id:4,
-        img:img
+        city: "Madurai",
+        role: "Buisness Analyst",
+        id: 4
     },
 ]
 
-const crudReducer = (state = users, action) => { 
+const crudReducer = (state = users, action) => {
     switch (action.type) {
         case 'CREATE_USER': {
             return [...state, action.payload]
         }
-        case 'DELETE_USER': { 
+        case 'DELETE_USER': {
             state = state.filter(user => user.id !== action.payload)
             return state;
         }
@@ -56,4 +56,6 @@ const crudReducer = (state = users, action) => {
     }
 }
 
-export { crudReducer };
+export {
+    crudReducer
+};

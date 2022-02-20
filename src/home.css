@@ -1,4 +1,4 @@
-.usersContainer{
+.usersContainer,.addUserDiv{
     display: flex;
     flex-flow: wrap row;
     justify-content: center;
@@ -6,9 +6,30 @@
     /* height: 100vh; */
 }
 .userCard{
-    /* border:2px solid ; */
-    /* display: inline-block; */
     padding: 10px;
-    margin-right: 10px;
+    margin-right: 20px;
     border: 2px solid grey;
+    background-color: white;
+    color:#3A4257;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    text-transform: capitalize;
+}
+
+.addUserDiv{
+    flex-direction: column;
+}
+.heading,.profileHeading{
+    font-size: 1.2rem;
+    width:80px !important;
+    font-weight: bold;
+    color:#3A4257
+}
+
+.userCard div{
+    display: flex;
+    flex-flow:row;
+    justify-content: space-between;
+    align-items: center;
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation,useNavigate } from 'react-router-dom';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import "./profile.css";
 
 export const Profile = () => {
     const location = useLocation();
@@ -8,6 +9,7 @@ export const Profile = () => {
     const navigate = useNavigate();
     const id = location.state.id;
     const {crudReducer} = useSelector(state => state);
+    const name = crudReducer[id].name;
     const [profileDetails, setProfileDetails] = useState({
         name: crudReducer[id].name,
         age: crudReducer[id].age,
@@ -30,27 +32,20 @@ export const Profile = () => {
         navigate("/")
     }
   return (
-      <div>
-          <button onClick={()=>edit()}>Edit</button>
-          {!showSubmit &&
-            <div>
-                <h1>Name:{profileDetails["name"]}</h1>
-                <h1>Age:{profileDetails["age"]}</h1>
-                <h1>City:{profileDetails["city"]}</h1>
-                <h1>Role:{profileDetails["role"]}</h1>
-            </div>
-          }
-          {showSubmit &&
-              <div>
-                  <h3>Name:<input value={profileDetails["name"]} name="name" onChange={(e)=>editText(e)}/></h3>
-                  <h3>Age:<input value={profileDetails["age"]} name="age" onChange={(e)=>editText(e)}/></h3>
-                  <h3>City:<input value={profileDetails["city"]} name="city" onChange={(e)=>editText(e)}/></h3>
-                  <h3>Role:<input value={profileDetails["role"]} name="role" onChange={(e)=>editText(e)}/></h3>
+      <div className='profileOuter'>
+          <div className='profileHeader'>
+              <span className='profileHeading'>{name}'s profile</span>
+            <button onClick={()=>edit()} className="editButton" style={{alignSelf:"end"}}>Edit</button>
+          </div>
+              <div className='userCard editor'>
+                  <div className='mt-2'><span className='heading'>Name:</span><input className='form-control' readOnly={showSubmit?false:true} value={profileDetails["name"]} name="name" onChange={(e)=>editText(e)}/></div>
+                  <div className='mt-2'><span className='heading'>Age:</span><input className='form-control' readOnly={showSubmit?false:true} value={profileDetails["age"]} name="age" onChange={(e)=>editText(e)}/></div>
+                  <div className='mt-2'><span className='heading'>City:</span><input className='form-control' readOnly={showSubmit?false:true} value={profileDetails["city"]} name="city" onChange={(e)=>editText(e)}/></div>
+                  <div className='mt-2'><span className='heading'>Role:</span><input className='form-control' readOnly={showSubmit?false:true} value={profileDetails["role"]} name="role" onChange={(e)=>editText(e)}/></div>
                   
               </div>
-          }
-          {showSubmit && <button onClick={() => onSubmit()}>Submit</button>}
-          <button onClick={()=>navigate("/")}>back</button>
+          {showSubmit && <button onClick={() => onSubmit()} className="btn btn-success mt-2">Submit</button>}
+          <button onClick={()=>navigate("/")} className="editButton mt-2 ">back</button>
       </div>
   )
 }
